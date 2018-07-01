@@ -3,7 +3,7 @@ let mongoose = require('mongoose');
 
 
 let packageSchema = mongoose.Schema({
-    name : {
+    group : {
         type : String,
         required : true
     },

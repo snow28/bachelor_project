@@ -2,9 +2,26 @@ doctype html
 html
     head
         title Time Series Data Storing Project
-    body
+        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css')
+        link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,600,700,800,900')
+        link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.1.0/css/all.css')
+        link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css')
+        link(rel='stylesheet' href='/css/main.css')
+    body.content-wrapper
+        nav.nav
+            div.logo
+                a(href="/")
+                    img(src='./assets/logo.svg')
+                p Time Series Data Project
+            div.logreg
+                a(href='/login').logreg-login Login
+                a(href='/register').logreg-register Register
+        div.nav-pages
+            a(href='/data') Data Page
         block content
         br
-        hr
         footer
-            p Copyright &copy; 2018 <br>Reserved by Snow28
+            p Copyright &copy; 2018 Reserved by Snow28
+            a(href="https://github.com/snow28").white <i class="fab fa-git-square"></i> GitHub : https://github.com/snow28
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    script(src='/js/main.js')

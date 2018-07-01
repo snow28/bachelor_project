@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    div.data
+        div.data-header
+            p Group
+            p Value
+            p Time
+        each package,i in packages
+            div.data-item
+                p=package.group
+                p=package.value
+                p=package.time
+                a(href='#',data-id=package._id).js-delete-package.delete Delete
