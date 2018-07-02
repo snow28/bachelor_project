@@ -19,7 +19,7 @@ io.on('connection', function (socket) {
     setInterval(function () {
         socket.emit('clientEvent', Math.random());
         console.log('message sent to the clients');
-    }, 3000);
+    }, 1000);
 });
 
 

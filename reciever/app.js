@@ -3,10 +3,14 @@ const path = require('path'); // core module
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const expressValidator = require('express-validator');
+const config = require('./config/database');
+const passport = require('passport');
+
 
 var io = require('socket.io-client'); // i will use this module to maintain communication between server
 
-mongoose.connect('mongodb://localhost/bachelor_project');
+mongoose.connect(config.database);
 let db = mongoose.connection;
 
 //check db connection
@@ -24,8 +28,9 @@ db.on('error' , function(err){
 //init appa
 const app = express();
 
-//bring in our package model
+//bring in our models
 let Package = require('./models/package');
+let User = require('./models/user');
 
 
 var socket = io.connect("http://localhost:4000/", {
@@ -56,55 +61,27 @@ app.use(session({
     saveUninitialized: true
 }));
 
+//Passport config
+require('./config/passport')(passport);
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
-// HOME ROUTE
-app.get('/' , function(req, res){
-    res.render('index');
-});
 
-app.get('/register' , function(req, res){
-    res.render('register');
-});
-
-app.get('/login' , function(req, res){
-    res.render('login');
-});
-
-app.get('/data' , function(req, res){
-    Package.find({},function(err , packages){
-        if(err){
-            console.log(err);
-        }else{
-            res.render('data' , {
-                packages : packages
-            });
-        }
-    });
-});
-
-app.get('/data' , function(req, res){
-    Package.find({},function(err , packages){
-        if(err){
-            console.log(err);
-        }else{
-            res.render('data' , {
-                packages : packages
-            });
-        }
-    });
+//we will use this variable to identify if user logged in
+app.get('*' , function(req,res,next){
+    res.locals.user = req.user || null;
+    next();
 });
 
 
-app.delete('/packageDelete/:id' , function(req, res){
-    let query = {_id : req.params.id};
 
-    Package.remove(query, function(err){
-        if(err){
-            console.log(err);
-        }
-        res.send('Success'); // by default send 200 state - OK
-    });
-});
+//we will set all routes in separate file
+
+let routes = require('./routes/routes');
+app.use('/',routes);
+
+
 
 
 //recieve data from SENDER server

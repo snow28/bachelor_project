@@ -14,10 +14,14 @@ html
                     img(src='./assets/logo.svg')
                 p Time Series Data Project
             div.logreg
-                a(href='/login').logreg-login Login
-                a(href='/register').logreg-register Register
+                if !user
+                    a(href='/login').logreg-login Login
+                    a(href='/register').logreg-register Register
         div.nav-pages
-            a(href='/data') Data Page
+            if user
+                a(href='/logout') Logout
+            if user
+                //a(href='/data') Data Page
         block content
         br
         footer
