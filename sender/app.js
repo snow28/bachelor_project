@@ -12,14 +12,19 @@ var io = require('socket.io').listen(4000);
 
 
 io.on('connection', function (socket) {
+
     console.log('connected:', socket.client.id);
+
     socket.on('serverEvent', function (data) {
         console.log('new message from client:', data);
     });
+
     setInterval(function () {
-        socket.emit('clientEvent', Math.random());
+        socket.emit('clientEvent', {
+            var : "text"
+        });
         console.log('message sent to the clients');
-    }, 1000);
+    }, 100);
 });
 
 
