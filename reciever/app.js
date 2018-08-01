@@ -10,6 +10,7 @@ const passport = require('passport');
 
 var io = require('socket.io-client'); // i will use this module to maintain communication between server
 
+
 mongoose.connect(config.database);
 let db = mongoose.connection;
 
@@ -25,7 +26,7 @@ db.on('error' , function(err){
 });
 
 
-//init appa
+//init app
 const app = express();
 
 //bring in our models
@@ -36,6 +37,9 @@ let User = require('./models/user');
 var socket = io.connect("http://localhost:4000/", {
     reconnection: true
 });
+
+
+
 
 
 
@@ -79,6 +83,8 @@ app.get('*' , function(req,res,next){
 //we will set all routes in separate file
 
 let routes = require('./routes/routes');
+
+
 app.use('/',routes);
 
 
@@ -88,12 +94,14 @@ app.use('/',routes);
 socket.on('connect', function () {
     console.log('connected to localhost:4000');
     socket.on('clientEvent', function (data) {
-        console.log('message from the server:', data);
+        //console.log('message from the server:', data);
         //socket.emit('serverEvent', "thanks server! for sending '" + data + "'");
         var package = new Package();
-        var date = new Date();
-        package.group = 'main';
-        package.value = data;
+        var date = new Date().toDateString();
+        console.log(date);
+        package.group = data.group;
+        package.value = data.value;
+        package.text_value = data.text_value;
         package.time = date;
         package.save(function(err){
             if(err){
@@ -105,6 +113,9 @@ socket.on('connect', function () {
         });
     });
 });
+
+
+
 
 
 

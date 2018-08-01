@@ -15,34 +15,61 @@ a {
 .white {
   color: white; }
 
+.hide {
+  display: none; }
+
 .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 70px;
   background-color: black;
   color: #ffc20e; }
   .nav .logo {
     margin-left: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center; }
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
     .nav .logo p {
       margin-left: 20px;
       border-left: 1px solid #ffc20e;
       height: 40px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      align-items: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
       padding-left: 10px;
       font-weight: 500; }
   .nav .logreg {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     font-weight: 500; }
     .nav .logreg a {
       width: 150px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
       border-radius: 30px;
       height: 30px;
       margin-right: 50px;
@@ -66,9 +93,15 @@ a {
     height: 40px;
     background-color: black;
     border-top: 2px solid #ffc20e;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center; }
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
     .nav-pages a {
       color: white; }
       .nav-pages a:hover {
@@ -79,10 +112,19 @@ footer {
   width: 100%;
   height: 150px;
   color: #ffc20e;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-weight: 500;
   position: fixed;
   bottom: 0;
@@ -91,8 +133,13 @@ footer {
     color: #ffc20e; }
 
 .register, .login {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 350px;
   margin: auto; }
   .register .submit, .login .submit {
@@ -103,9 +150,15 @@ footer {
     border-radius: 30px;
     height: 30px;
     font-weight: 600;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     color: #ffc20e; }
     .register .submit:hover, .login .submit:hover {
       background-color: #ffc20e;
@@ -117,6 +170,12 @@ footer {
     color: white;
     border-bottom: 1px solid white;
     padding: 4px; }
+    .register input::-webkit-input-placeholder, .login input::-webkit-input-placeholder {
+      color: white; }
+    .register input:-ms-input-placeholder, .login input:-ms-input-placeholder {
+      color: white; }
+    .register input::-ms-input-placeholder, .login input::-ms-input-placeholder {
+      color: white; }
     .register input::placeholder, .login input::placeholder {
       color: white; }
     .register input:focus, .login input:focus {
@@ -130,46 +189,49 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-size: 25px;
   pointer-events: none; }
 
 .data {
   padding-top: 30px; }
+  .data-filters-groups {
+    color: white; }
   .data-header {
     color: #ffc20e;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex; }
     .data-header P {
       font-weight: 600;
       font-size: 18px;
-      text-transform: uppercase; }
-      .data-header P:first-child {
-        width: 10%;
-        text-align: center; }
-      .data-header P:nth-child(2) {
-        color: white;
-        width: 20%; }
+      text-transform: uppercase;
+      width: 20%;
+      text-align: center; }
       .data-header P:last-child {
-        width: 60%;
-        margin-left: 10%; }
+        margin-right: 20%; }
   .data-item {
     color: #ffc20e;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex; }
-    .data-item P:first-child {
-      width: 10%;
-      text-align: center; }
-    .data-item P:nth-child(2) {
-      color: white;
+    .data-item p, .data-item a {
       width: 20%;
-      font-weight: 500; }
-    .data-item P:nth-child(3) {
-      width: 30%;
-      margin-left: 10%;
+      text-align: center; }
+    .data-item p:nth-child(2) {
+      color: white;
+      width: 20%; }
+    .data-item p:nth-child(4) {
       font-size: 10px; }
     .data-item a {
-      width: 30%;
       text-align: center;
       color: red;
       cursor: pointer; }

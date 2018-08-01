@@ -86,7 +86,8 @@ router.get('/data' , function(req, res){
             console.log(err);
         }else{
             res.render('data' , {
-                packages : packages
+                packages : packages,
+                groups : ['Thread-1','Thread-2']
             });
         }
     });

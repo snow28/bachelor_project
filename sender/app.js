@@ -21,10 +21,23 @@ io.on('connection', function (socket) {
 
     setInterval(function () {
         socket.emit('clientEvent', {
-            var : "text"
+            group : 'Thread-1',
+            value : Math.random(),
+            text_value : "Thread-1"
         });
         console.log('message sent to the clients');
-    }, 100);
+    }, 1000);
+
+    setInterval(function () {
+        socket.emit('clientEvent', {
+            group : 'Thread-2',
+            value : Math.random(),
+            text_value : "Thread-2"
+        });
+        console.log('message sent to the clients');
+    }, 1500);
+
+
 });
 
 

@@ -2,13 +2,20 @@ extends layout
 
 block content
     div.data
+        div.data-filters
+            div.data-filters-groups
+                each group,z in groups
+                    p.js-group-selector.data-groupItem(data-group=group)
+                        |!{group}
         div.data-header
             p Group
-            p Value
+            p Float value
+            p Text Value
             p Time
         each package,i in packages
-            div.data-item
+            div.data-item.js-data-item(data-group=package.group)
                 p=package.group
                 p=package.value
+                p=package.text_value
                 p=package.time
                 a(href='#',data-id=package._id).js-delete-package.delete Delete

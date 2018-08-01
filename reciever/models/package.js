@@ -8,8 +8,10 @@ let packageSchema = mongoose.Schema({
         required : true
     },
     value : {
-        type : Number,
-        required : true
+        type : Number
+    },
+    text_value : {
+        type : String
     },
     time : {
         type : String,
